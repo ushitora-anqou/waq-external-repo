@@ -51,6 +51,8 @@ build: [
 dev-repo: "git+https://github.com/ushitora-anqou/yume.git"
 url {
   src: "https://github.com/ushitora-anqou/yume/archive/refs/tags/0.1.10.tar.gz"
-  checksum: "sha256=9499db397861edc8e6c5bdadf5e646c94ef76847854c98cd64889245373a5a71"
-  #md5=d4077db15b50feb1686f014e408f909d
+  checksum: [
+    "md5=d4077db15b50feb1686f014e408f909d"
+    "sha512=69e37ef28ce628ec077f5e34d57e88219347c0881cee391dc6406e13bdf972870d56a5b6be1b00d533a7946d2a65fc300b2174729212a7ec563c95cc887db9fc"
+  ]
 }

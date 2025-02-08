@@ -48,6 +48,8 @@ build: [
 dev-repo: "git+https://github.com/ushitora-anqou/camlimages.git"
 url {
   src: "https://github.com/ushitora-anqou/camlimages/archive/90ceb604527e5e1daddc969d920ff37d118b8a60.tar.gz"
-  checksum: "sha256=5742b8362a11cb62235e81aea881ccc7df267ae08272a4516a907b5ece63afac"
-  #md5=f3e75e086c7c4336de2d17e088094763
+  checksum: [
+    "md5=f3e75e086c7c4336de2d17e088094763"
+    "sha512=42a10ee43daa2b012b7f12ab148c17ae24460c6e004639efbcd5fdf256231e85dc164e237cae18b46f6d2f1066e0b01fc26876aae7f56c71460f97104e31d586"
+  ]
 }
