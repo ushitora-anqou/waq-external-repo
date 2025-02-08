@@ -1,0 +1,53 @@
+opam-version: "2.0"
+synopsis: "Image processing library"
+description:
+  "An image processing library, which provides loading and saving various image formats with an interface for the Caml graphics library. It has also an interface with the freetype library to draw texts using truetype fonts."
+maintainer: [
+  "@ushitora-anqou"
+]
+authors: [
+  "Jun FURUSE <jun.furuse@gmail.com>"
+  "@ushitora-anqou"
+]
+license: "LGPL-2.1-only WITH OCaml-LGPL-linking-exception"
+homepage: "https://github.com/ushitora-anqou/camlimages"
+bug-reports: "https://github.com/ushitora-anqou/camlimages/-/issues"
+depends: [
+  "ocaml" {>= "5.0.0"}
+  "dune" {>= "3.2"}
+  "base" {build}
+  "stdio" {build}
+  "cppo" {build}
+  "dune-configurator" {build & >= "2.0.0"}
+  "ocamlfind" {build}
+  "odoc" {with-doc}
+]
+depopts: [
+  "lablgtk"
+  "graphics"
+  "conf-libpng"
+  "conf-libjpeg"
+  "conf-freetype"
+  "conf-libgif"
+  "conf-ghostscript"
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/ushitora-anqou/camlimages.git"
+url {
+  src: "https://github.com/ushitora-anqou/camlimages/archive/90ceb604527e5e1daddc969d920ff37d118b8a60.tar.gz"
+  checksum: "sha256=5742b8362a11cb62235e81aea881ccc7df267ae08272a4516a907b5ece63afac"
+  #md5=f3e75e086c7c4336de2d17e088094763
+}
