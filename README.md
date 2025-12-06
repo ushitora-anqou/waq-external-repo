@@ -3,6 +3,8 @@
 ## ffmpeg
 
 ```
+cd packages
+
 ls ocaml-ffmpeg/opam/*.opam | \
 while read line; do
 base=$(basename $line)
