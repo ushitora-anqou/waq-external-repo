@@ -19,5 +19,6 @@ url {
   ]
 }
 EOS
+sed -r -i 's/^version: "1.2.7"$/version: "1.2.7+waq.1"/' ${dir}/opam
 done
 ```
