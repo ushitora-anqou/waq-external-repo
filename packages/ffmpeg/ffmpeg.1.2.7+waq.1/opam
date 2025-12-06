@@ -8,15 +8,12 @@ license: "LGPL-2.1-only"
 homepage: "https://github.com/savonet/ocaml-ffmpeg"
 bug-reports: "https://github.com/savonet/ocaml-ffmpeg/issues"
 depends: [
-  "ocaml" {>= "4.08.0"}
+  "base-threads"
+  "conf-ffmpeg" {build}
+  "conf-pkg-config" {build}
   "dune" {>= "3.8"}
-  "ffmpeg-av" {= version}
-  "ffmpeg-avutil" {= version}
-  "ffmpeg-avcodec" {= version}
-  "ffmpeg-avfilter" {= version}
-  "ffmpeg-avdevice" {= version}
-  "ffmpeg-swscale" {= version}
-  "ffmpeg-swresample" {= version}
+  "dune-configurator" {build}
+  "ocaml" {>= "4.08.0"}
   "odoc" {with-doc}
 ]
 build: [
