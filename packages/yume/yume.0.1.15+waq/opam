@@ -1,0 +1,55 @@
+opam-version: "2.0"
+synopsis: "Yet another Web framework based on Eio, inspired by Dream"
+description: "Yet another Web framework based on Eio, inspired by Dream"
+maintainer: ["Ushitora Anqou"]
+authors: ["Ushitora Anqou"]
+license: "MIT"
+tags: ["http" "https" "websocket"]
+homepage: "https://github.com/ushitora-anqou/yume"
+doc: "https://github.com/ushitora-anqou/yume"
+bug-reports: "https://github.com/ushitora-anqou/yume/issues"
+depends: [
+  "alcotest" {with-test}
+  "base64"
+  "ca-certs"
+  "cohttp" {>= "6.0.0"}
+  "cohttp-eio" {>= "6.0.0"}
+  "digestif"
+  "dune" {>= "3.7"}
+  "eio"
+  "eio_main" {with-test}
+  "logs"
+  "mirage-crypto-rng" {>= "2.0.0"}
+  "multipart_form" {>= "0.6.0"}
+  "multipart_form-eio" {>= "0.6.0"}
+  "ocaml" {>= "5.1.0"}
+  "odoc" {with-doc}
+  "ppx_deriving"
+  "tls"
+  "tls-eio"
+  "websocket" {>= "2.17"}
+  "x509"
+  "yojson"
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/ushitora-anqou/yume.git"
+url {
+  src: "https://github.com/ushitora-anqou/yume/archive/refs/tags/0.1.15.tar.gz"
+  checksum: [
+    "md5=ca63467cbf10e44a51c1889d3e9778ec"
+    "sha512=a021867ac17bdfd2c3e6e1e4c83aacbd27cd5b3382d4ee728fc8a325b6c2480b1cb56291b85e8decf13b1f610bd72ea84c5f9b1781193cc0856be3bca2896b11"
+  ]
+}
