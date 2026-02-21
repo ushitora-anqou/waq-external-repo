@@ -32,7 +32,7 @@ ls ocaml-caqti/*.opam | \
 while read line; do
 base=$(basename $line)
 base=${base%.*}
-dir=${base}/${base}.2.2.4+waq.1
+dir=packages/${base}/${base}.2.2.4+waq.1
 mkdir -p ${dir}
 cp $line ${dir}/opam
 cat <<EOS >> ${dir}/opam
