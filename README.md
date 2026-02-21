@@ -24,3 +24,25 @@ EOS
 sed -r -i 's/^version: "1.2.7"$/version: "1.2.7+waq.1"/' ${dir}/opam
 done
 ```
+
+## caqti
+
+```sh
+ls ocaml-caqti/*.opam | \
+while read line; do
+base=$(basename $line)
+base=${base%.*}
+dir=${base}/${base}.2.2.4+waq.1
+mkdir -p ${dir}
+cp $line ${dir}/opam
+cat <<EOS >> ${dir}/opam
+url {
+  src: "https://github.com/ushitora-anqou/ocaml-caqti/archive/refs/tags/2.2.4+waq.1.tar.gz"
+  checksum: [
+    "md5=caa2ca032e440d63b67fdae925d560a3"
+    "sha512=e555eaa6ef08fbc344e75aa4138921ad29782c587514957bdaa52d2eb851d67b22724010049dde3ec96e26e37c6dd5a59a30bc9c05a5b3b11ebddb617f1fd0a5"
+  ]
+}
+EOS
+done
+```
