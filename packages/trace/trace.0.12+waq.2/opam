@@ -1,0 +1,48 @@
+opam-version: "2.0"
+synopsis:
+  "A lightweight stub for tracing/observability, agnostic in how data is collected"
+description: """
+ocaml-trace can be used to instrument libraries and programs with low overhead.
+
+              It doesn't do any IO unless a collector is plugged in, which only
+              the final executable should do."""
+maintainer: ["Simon Cruanes"]
+authors: ["Simon Cruanes"]
+license: "MIT"
+tags: ["trace" "tracing" "observability" "profiling"]
+homepage: "https://github.com/ocaml-tracing/ocaml-trace"
+bug-reports: "https://github.com/ocaml-tracing/ocaml-trace/issues"
+depends: [
+  "ocaml" {>= "4.08"}
+  "dune" {>= "2.9"}
+  "odoc" {with-doc}
+]
+depopts: [
+  "unix"
+  "thread-local-storage" {>= "0.2"}
+  "mtime" {>= "2.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "--promote-install-files=false"
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+  ["dune" "install" "-p" name "--create-install-files" name]
+]
+dev-repo: "git+https://github.com/ocaml-tracing/ocaml-trace.git"
+url {
+  src: "https://github.com/ushitora-anqou/ocaml-trace/archive/a3f55bf444576252f2aa69c5d09ac9edf91ca6ac.tar.gz"
+  checksum: [
+    "md5=befa299f0988ab09ed376d11cbf31c7c"
+    "sha512=50eafcf1bfe1beec94fa7bdd195e21a05876f0ec3eec3c8799a1c5bbeb9316117d5f0eb3473e9f15cd71fcabdfee46ea2d9fa850c0fd2100eae5cb4240c261a7"
+  ]
+}
